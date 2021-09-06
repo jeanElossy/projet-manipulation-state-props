@@ -1,0 +1,36 @@
+$color-header: blue;
+
+.headerBox{
+  background: $color-header;
+  border-radius: 9px 9px 0 0;
+  .input-bottom{
+    outline: none;
+    border: none;
+    span{
+      width: 35px;
+      height: 35px;
+      background: white;
+      border-radius: 50%;
+      border: 7px solid black;
+      color: black;
+    }
+  }
+  form{
+    justify-content: space-between;
+    input{
+      background: #21222198;
+      border: none;
+      width: 280px;
+    }
+    input::placeholder{
+      color: rgba(255, 255, 255, 0.438);
+      font-style: italic;
+    }
+    input:focus{
+      background: #21222198;
+      color: white;
+      box-shadow: none;
+      border: none;
+    }
+  }
+}
