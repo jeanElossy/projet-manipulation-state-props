@@ -5,9 +5,7 @@ import List from "./List";
 class Card extends Component {
 
   state = {
-    persons : [
-      
-    ]
+    persons : []
   }
 
   handleAddUser = (user) => {
@@ -19,6 +17,18 @@ class Card extends Component {
     })
   }
 
+  deleteUser = (user) =>{
+    const newUsers = this.state.persons.filter(user => 
+      user !== user);
+
+    console.log(newUsers);
+
+    this.setState({
+      persons: newUsers
+    })  
+  }
+
+
   render() {
     return (
       <div className="container">
@@ -29,7 +39,7 @@ class Card extends Component {
           />
           <List 
             users={this.state.persons}
-            
+            deleteClickHnadler={this.deleteUser.bind(this)}
           />
         </div>
       </div>
