@@ -2,16 +2,6 @@ import React, { Component } from 'react';
 import { BsTrashFill } from "react-icons/bs";
 
 class List extends Component {
-  
-  delete = () =>{
-    this.props.deleteUser(
-      {
-        id: new Date().getTime(),
-        nom: this.props.users,
-        description: "Developpeur Full-stack js"
-      }
-    )
-  }
 
   render() {
     return (
@@ -26,9 +16,10 @@ class List extends Component {
                 <h1 className="h5">{user.nom}</h1>
                 <div>{user.description}</div>
               </div>
-              <div className="mt-3 cursor-pointer" style={{cursor:"pointer"}} onClick={() => this.delete(user.id)}>
+              <div className="mt-3 cursor-pointer" style={{cursor:"pointer"}} onClick={() => this.props.deleteUser(user.id)}>
                 <BsTrashFill />
               </div>
+              
             </div>
             <div className="line"></div>
           </div>

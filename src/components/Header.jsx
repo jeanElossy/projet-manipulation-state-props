@@ -16,6 +16,7 @@ class Header extends Component {
 
   add = () =>{
     this.props.userAdd({
+      id: new Date().getTime(),
       nom: this.state.nom,
       description: "Developpeur Full-stack Js"
     })

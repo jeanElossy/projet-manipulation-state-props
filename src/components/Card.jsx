@@ -5,40 +5,27 @@ import List from "./List";
 class Card extends Component {
 
   state = {
-    persons: [
-      // {
-      //   nom:"elossy",
-      //   description: "test"
-      // },
-      // {
-      //   nom:"max",
-      //   description: "test"
-      // },
-      // {
-      //   nom:"elena",
-      //   description: "test"
-      // }
-    ]
+    persons: []
   }
   
   handleAddUser = (user) =>{
     const newUsers = [...this.state.persons];
     newUsers.push(user)
-
     this.setState({
       persons: newUsers
     })
   }
 
   handleDeleteUser = (id) =>{
+    
     const newState = this.state.persons.filter(user =>
-      user.id !== id  
-
+      user.id !== id
+      
     );
-
     this.setState({
       persons: newState
     })
+    
   }
 
 
