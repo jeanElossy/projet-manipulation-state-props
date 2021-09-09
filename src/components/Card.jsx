@@ -5,27 +5,40 @@ import List from "./List";
 class Card extends Component {
 
   state = {
-    persons : []
+    persons: [
+      // {
+      //   nom:"elossy",
+      //   description: "test"
+      // },
+      // {
+      //   nom:"max",
+      //   description: "test"
+      // },
+      // {
+      //   nom:"elena",
+      //   description: "test"
+      // }
+    ]
+  }
+  
+  handleAddUser = (user) =>{
+    const newUsers = [...this.state.persons];
+    newUsers.push(user)
+
+    this.setState({
+      persons: newUsers
+    })
   }
 
-  handleAddUser = (user) => {
-    const newState = [...this.state.persons];
-    newState.push(user)
+  handleDeleteUser = (id) =>{
+    const newState = this.state.persons.filter(user =>
+      user.id !== id  
+
+    );
 
     this.setState({
       persons: newState
     })
-  }
-
-  deleteUser = (user) =>{
-    const newUsers = this.state.persons.filter(user => 
-      user !== user);
-
-    console.log(newUsers);
-
-    this.setState({
-      persons: newUsers
-    })  
   }
 
 
@@ -34,12 +47,11 @@ class Card extends Component {
       <div className="container">
         <div className="box border border-dark">
           <Header 
-            addUser={this.handleAddUser} 
-
+            userAdd={this.handleAddUser}
           />
           <List 
             users={this.state.persons}
-            deleteClickHnadler={this.deleteUser.bind(this)}
+            deleteUser={this.handleDeleteUser}
           />
         </div>
       </div>

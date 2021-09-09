@@ -3,14 +3,21 @@ import { BsPlus  } from "react-icons/bs";
 import Search from './Search';
 
 class Header extends Component {
-
+ 
   state = {
-    name: ""
+    nom: ""
   }
-  
-  handleChange = (e) =>{
+ 
+  handleChange = (e) => {
     this.setState({
-      name: e.target.value
+      nom: e.target.value
+    })
+  }
+
+  add = () =>{
+    this.props.userAdd({
+      nom: this.state.nom,
+      description: "Developpeur Full-stack Js"
     })
   }
 
@@ -20,17 +27,15 @@ class Header extends Component {
         <div style={{float: "right"}}>
           <Search />
         </div>
-        <h1 className="h5 mt-5">Ajouter un utilisateur <span>{this.state.name}</span></h1>
+        <h1 className="h5 mt-5">Ajouter un utilisateur <span>{this.state.nom}</span></h1>
         <div>Ajouter en live des utilisateurs</div>
         <form action="/" className="form-group d-flex">
           <div>
             <input type="text" name="name" id="name" className="form-control rounded-pill mt-2" placeholder="Ecrire" onChange={this.handleChange}/>
           </div>
           <div className="input-bottom">
-            <div type="submit" className="d-flex justify-content-center align-items-center mt-2"><span className="d-flex justify-content-center align-items-center " onClick={() => this.props.addUser({
-              nom:this.state.name,
-              description: "Developpeur full-stack JS"
-            })}><BsPlus /></span></div>
+            <div type="submit" className="d-flex justify-content-center align-items-center mt-2" onClick={this.add}>
+          <span className="d-flex justify-content-center align-items-center"><BsPlus /></span></div>
           </div>
         </form>
       </div>

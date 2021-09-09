@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { FiSearch } from "react-icons/fi";
 
 class Search extends Component {
+ 
   render() {
+
     return (
       <div className="Search">
         <form action="/" className="form-group">
